@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#E3F2FD">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📦 Fragment Comun"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#1976D2"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Input pentru mesaj -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mesaj de transmis:"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/etMesajFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Scrie un mesaj..."
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Input pentru numar -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Număr de transmis:"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/etNumarFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Introduceți un număr"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Buton trimite -->
+        <Button
+            android:id="@+id/btnTrimiteDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trimite Date"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Status -->
+        <TextView
+            android:id="@+id/tvStatusFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status: Aștept date..."
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:textColor="#666666"
+            android:gravity="center"/>
+
+    </LinearLayout>
+</FrameLayout>

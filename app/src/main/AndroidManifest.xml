@@ -29,6 +29,8 @@
         <activity android:name=".Task5Activity" />
         <activity android:name=".Task6Activity" />
         <activity android:name=".Task6SecondActivity" />
+        <activity android:name=".Task7Activity" />
+        <activity android:name=".Task7SecondActivity" />
     </application>
 
 </manifest>

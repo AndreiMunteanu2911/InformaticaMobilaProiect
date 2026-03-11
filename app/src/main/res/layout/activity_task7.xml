@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tvTitluTask7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Task 7 - Fragment (Fereastra 1)"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Același fragment folosit în două ferestre"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnInapoiTask7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Inapoi la Meniu"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Informatii despre fragment -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Completează datele și apasă 'Trimite Date' pentru a deschide Fereastra 2. Datele vor fi transmise automat."
+        android:textSize="13sp"
+        android:background="#FFF3E0"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Container pentru Fragment -->
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Separator -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CCCCCC"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Afisare date primite inapoi -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date primite înapoi din Fereastra 2:"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/tvDatePrimiteInapoi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nicio dată primită încă..."
+        android:textSize="14sp"
+        android:background="#E8F5E9"
+        android:padding="12dp"/>
+
+</LinearLayout>

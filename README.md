@@ -32,6 +32,9 @@ app/
 │   │   ├── Task5Activity.kt
 │   │   ├── Task6Activity.kt
 │   │   ├── Task6SecondActivity.kt
+│   │   ├── Task7Activity.kt
+│   │   ├── Task7SecondActivity.kt
+│   │   ├── Task7Fragment.kt
 │   │   ├── Produs.kt
 │   │   ├── data/
 │   │   ├── fragments/
@@ -46,6 +49,9 @@ app/
 │   │   │   ├── activity_task5.xml
 │   │   │   ├── activity_task6.xml
 │   │   │   ├── activity_task6_second.xml
+│   │   │   ├── activity_task7.xml
+│   │   │   ├── activity_task7_second.xml
+│   │   │   ├── fragment_task7.xml
 │   │   ├── values/
 │   │   ├── values-bg/
 │   │   ├── values-de/
@@ -64,3 +70,4 @@ app/
 - [x] **Task 4**: Internationalizare - 2 elemente text + 1 imagine (steag) in 4 limbi (RO, EN, DE, FR) cu schimbare dinamica a limbii in `Task4Activity`
 - [x] **Task 5**: Fisier intern SI extern - 2 componente (ID/text + numar), selector tip fisier, afisare cale, operatii de creare, scriere, citire, adaugare (cu verificare duplicat) si stergere (dupa ID) in `Task5Activity`
 - [x] **Task 6**: Doua ferestre - transmitere a 2 valori (nume + varsta) prin Intent de la `Task6Activity` la `Task6SecondActivity` si afisarea lor in fereastra noua
+- [x] **Task 7**: Fragment comun (`Task7Fragment`) folosit in doua ferestre diferite (`Task7Activity` + `Task7SecondActivity`) pentru transmiterea de informatii intre ele prin intermediul unei interfețe
