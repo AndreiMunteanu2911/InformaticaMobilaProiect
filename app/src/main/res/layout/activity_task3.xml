@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitluTask3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Task 3 - URL / RSS Feed"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Conectare la URL si afisare informatii online"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/btnInapoiTask3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inapoi la Meniu"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Introducere URL -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="URL API (vreme):"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/etUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textUri"
+            android:text="https://api.open-meteo.com/v1/forecast?latitude=45.43&amp;longitude=28.01&amp;current_weather=true"
+            android:hint="Introduceți URL API"
+            android:textSize="12sp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Buton incarcare date -->
+        <Button
+            android:id="@+id/btnIncarcaDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Incarca Date de la URL"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Buton deschide browser -->
+        <Button
+            android:id="@+id/btnDeschideBrowser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Deschide in Browser"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Separator -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#CCCCCC"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Afisare titlu (camp 1) -->
+        <TextView
+            android:id="@+id/tvTitluLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Titlu:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tvTitluValoare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="14sp"
+            android:background="#F0F0F0"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Afisare corp (camp 2) -->
+        <TextView
+            android:id="@+id/tvCorpLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Continut:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tvCorpValoare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="14sp"
+            android:background="#F0F0F0"
+            android:padding="8dp"/>
+
+        <!-- Progress bar pentru loading -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_marginTop="16dp"/>
+
+    </LinearLayout>
+</ScrollView>
