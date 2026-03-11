@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitluTask6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Task 6 - Noua Fereastra"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transmitere a 2 valori catre o alta fereastra"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/btnInapoiTask6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inapoi la Meniu"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Componenta 1: Text (Nume) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nume (Text):"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/etNume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Introduceți un nume"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Componenta 2: Numar (Varsta) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vârstă (Număr):"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/etVarsta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Introduceți vârsta"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Buton deschide fereastra noua -->
+        <Button
+            android:id="@+id/btnDeschideFereastra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Deschide Fereastra Nouă"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Separator -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#CCCCCC"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Informatii despre ce se va transmite -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Se vor transmite:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvPreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nume: -\nVarsta: -"
+            android:textSize="14sp"
+            android:background="#F0F0F0"
+            android:padding="12dp"/>
+
+    </LinearLayout>
+</ScrollView>
