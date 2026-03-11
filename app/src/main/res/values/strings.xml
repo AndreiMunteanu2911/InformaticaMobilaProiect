@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">InformaticaMobilaProiect</string>
+    
+    <!-- Task 4 - Internationalizare -->
+    <string name="task4_title">Task 4 - Internationalizare</string>
+    <string name="task4_subtitle">Afisare elemente text si imagine in 4 limbi</string>
+    <string name="btn_back">Inapoi la Meniu</string>
+    <string name="salut">Salut! Bine ai venit!</string>
+    <string name="mesaj_bun_venit">Aceasta este o aplicatie Android pentru demonstrarea internationalizarii.</string>
+    <string name="steag_descriere">Steagul Romaniei</string>
+    <string name="selecteaza_limba">Selecteaza limba:</string>
+    <string name="limba_curenta">Limba curenta: Romana (RO)</string>
 </resources>

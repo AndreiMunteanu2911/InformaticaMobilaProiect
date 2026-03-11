@@ -38,8 +38,11 @@ class MainActivity : AppCompatActivity() {
 
         // Buton Task 4 (viitor)
         val btnTask4 = findViewById<Button>(R.id.btnTask4)
+        btnTask4.isEnabled = true
+        btnTask4.alpha = 1.0f
         btnTask4.setOnClickListener {
-            // De implementat
+            val intent = Intent(this, Task4Activity::class.java)
+            startActivity(intent)
         }
 
         // Buton Task 5 (viitor)

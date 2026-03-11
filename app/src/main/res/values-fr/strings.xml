@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">InformaticaMobilaProiect</string>
+    
+    <!-- Task 4 - Internationalisation -->
+    <string name="task4_title">Tâche 4 - Internationalisation</string>
+    <string name="task4_subtitle">Affichage d\'éléments texte et image en 4 langues</string>
+    <string name="btn_back">Retour au Menu</string>
+    <string name="salut">Bonjour! Bienvenue!</string>
+    <string name="mesaj_bun_venit">Ceci est une application Android pour démontrer l\'internationalisation.</string>
+    <string name="steag_descriere">Drapeau de la Roumanie</string>
+    <string name="selecteaza_limba">Sélectionnez la langue:</string>
+    <string name="limba_curenta">Langue actuelle: Français (FR)</string>
+</resources>
