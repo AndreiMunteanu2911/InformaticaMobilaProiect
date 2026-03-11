@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Titlu -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/task8_title"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Selector locatie fisier (Intern/Extern) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Locație fișier:"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <RadioGroup
+            android:id="@+id/rgLocatieFisier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/rbFisierIntern"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Intern"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/rbFisierExtern"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Extern" />
+        </RadioGroup>
+
+        <!-- Selector format fisier (XML/JSON) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Format fișier:"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <RadioGroup
+            android:id="@+id/rgTipFisier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/rbJson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="JSON"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/rbXml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XML" />
+        </RadioGroup>
+
+        <!-- Separator -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Campuri input pentru element principal -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adaugă element în listă:"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etNumeElement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nume element (string)"
+            android:inputType="text"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etValoareNumerica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Valoare numerică"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="8dp" />
+
+        <CheckBox
+            android:id="@+id/cbActiv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Element activ (boolean)"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Campuri pentru subelemente (lista din interior) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subelemente (lista din interior):"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etSubelementNume"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Nume subelement"
+                android:inputType="text"
+                android:layout_marginEnd="4dp" />
+
+            <EditText
+                android:id="@+id/etSubelementValoare"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Valoare"
+                android:inputType="numberDecimal"
+                android:layout_marginEnd="4dp" />
+
+            <Button
+                android:id="@+id/btnAdaugaSubelement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp" />
+        </LinearLayout>
+
+        <!-- Lista de subelemente adaugate -->
+        <TextView
+            android:id="@+id/tvSubelementeAdaugate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subelemente adăugate: (niciunul)"
+            android:textStyle="italic"
+            android:padding="8dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Buton adaugare element principal -->
+        <Button
+            android:id="@+id/btnAdaugaElement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Adaugă Element în Listă"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Camp pentru stergere dupa nume -->
+        <EditText
+            android:id="@+id/etNumeStergere"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nume element de șters"
+            android:inputType="text"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnStergeElement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Șterge Element (după nume)"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Buton citire -->
+        <Button
+            android:id="@+id/btnCiteste"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Citește din Fișier"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Buton stergere completa -->
+        <Button
+            android:id="@+id/btnStergeTot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Șterge Tot Conținutul"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@android:color/holo_red_dark" />
+
+        <!-- Afisare cale fisier -->
+        <TextView
+            android:id="@+id/tvCaleFisier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cale fișier: "
+            android:textStyle="italic"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Status -->
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status: "
+            android:textColor="@android:color/holo_blue_dark"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Rezultat -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Conținut fișier:"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/tvRezultat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/edit_text"
+            android:padding="8dp"
+            android:minHeight="200dp"
+            android:fontFamily="monospace"
+            android:textSize="11sp" />
+
+        <!-- Buton inapoi -->
+        <Button
+            android:id="@+id/btnInapoiTask8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Înapoi"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</ScrollView>

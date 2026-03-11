@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">InformaticaMobilaProiect</string>
-    
+
     <!-- Task 4 - Internationalizare -->
     <string name="task4_title">Task 4 - Internationalizare</string>
     <string name="task4_subtitle">Afisare elemente text si imagine in 4 limbi</string>
@@ -10,4 +10,11 @@
     <string name="steag_descriere">Steagul Romaniei</string>
     <string name="selecteaza_limba">Selecteaza limba:</string>
     <string name="limba_curenta">Limba curenta: Romana (RO)</string>
+
+    <!-- Task 8 -->
+    <string name="task8_title">Task 8 - Fișier XML/JSON</string>
+    <string name="task8_locatie_fisier">Locație fișier:</string>
+    <string name="task8_fisier_intern">Intern</string>
+    <string name="task8_fisier_extern">Extern</string>
+    <string name="task8_format_fisier">Format fișier:</string>
 </resources>

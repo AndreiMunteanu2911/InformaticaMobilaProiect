@@ -98,7 +98,7 @@
             android:id="@+id/btnTask8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Task 8 - XML/JSON + Baza Date"
+            android:text="Task 8 - XML/JSON"
             android:enabled="false"
             android:alpha="0.5"
             android:layout_marginBottom="12dp"/>

@@ -35,6 +35,7 @@ app/
 │   │   ├── Task7Activity.kt
 │   │   ├── Task7SecondActivity.kt
 │   │   ├── Task7Fragment.kt
+│   │   ├── Task8Activity.kt
 │   │   ├── Produs.kt
 │   │   ├── data/
 │   │   ├── fragments/
@@ -51,6 +52,7 @@ app/
 │   │   │   ├── activity_task6_second.xml
 │   │   │   ├── activity_task7.xml
 │   │   │   ├── activity_task7_second.xml
+│   │   │   ├── activity_task8.xml
 │   │   │   ├── fragment_task7.xml
 │   │   ├── values/
 │   │   ├── values-bg/
@@ -71,3 +73,4 @@ app/
 - [x] **Task 5**: Fisier intern SI extern - 2 componente (ID/text + numar), selector tip fisier, afisare cale, operatii de creare, scriere, citire, adaugare (cu verificare duplicat) si stergere (dupa ID) in `Task5Activity`
 - [x] **Task 6**: Doua ferestre - transmitere a 2 valori (nume + varsta) prin Intent de la `Task6Activity` la `Task6SecondActivity` si afisarea lor in fereastra noua
 - [x] **Task 7**: Fragment comun (`Task7Fragment`) folosit in doua ferestre diferite (`Task7Activity` + `Task7SecondActivity`) pentru transmiterea de informatii intre ele prin intermediul unei interfețe
+- [x] **Task 8**: Fișier intern/extern JSON/XML cu operatii CRUD (scriere, citire, adaugare, stergere) pentru o listă de elemente, fiecare conținând: o listă (subelemente), o altă structură (detalii) și un element boolean (activ) în `Task8Activity`

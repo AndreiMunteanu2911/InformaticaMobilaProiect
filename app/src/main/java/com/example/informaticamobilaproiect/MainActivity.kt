@@ -72,10 +72,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Buton Task 8 (viitor)
+        // Buton Task 8
         val btnTask8 = findViewById<Button>(R.id.btnTask8)
+        btnTask8.isEnabled = true
+        btnTask8.alpha = 1.0f
         btnTask8.setOnClickListener {
-            // De implementat
+            val intent = Intent(this, Task8Activity::class.java)
+            startActivity(intent)
         }
     }
 }
