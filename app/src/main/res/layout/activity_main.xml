@@ -10,19 +10,98 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tvTitlu"
+            android:id="@+id/tvTitluMeniu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Listă Produse:"
-            android:textSize="24sp"
+            android:text="Informatica Mobila - Proiect"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selecteaza un task:"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginBottom="16dp"/>
 
-        <TextView
-            android:id="@+id/tvAfisareDate"
+        <!-- Buton Task 1 -->
+        <Button
+            android:id="@+id/btnTask1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Aici vor apărea obiectele..."
-            android:textSize="16sp" />
+            android:text="Task 1 - Lista Obiecte"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Buton Task 2 -->
+        <Button
+            android:id="@+id/btnTask2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Task 2 - Filtrare 2 Conditii"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Buton Task 3 (viitor) -->
+        <Button
+            android:id="@+id/btnTask3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Task 3 - URL/RSS Feed"
+            android:enabled="false"
+            android:alpha="0.5"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Buton Task 4 (viitor) -->
+        <Button
+            android:id="@+id/btnTask4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Task 4 - Internationalizare"
+            android:enabled="false"
+            android:alpha="0.5"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Buton Task 5 (viitor) -->
+        <Button
+            android:id="@+id/btnTask5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Task 5 - Fisier Intern/Extern"
+            android:enabled="false"
+            android:alpha="0.5"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Buton Task 6 (viitor) -->
+        <Button
+            android:id="@+id/btnTask6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Task 6 - Noua Fereastra"
+            android:enabled="false"
+            android:alpha="0.5"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Buton Task 7 (viitor) -->
+        <Button
+            android:id="@+id/btnTask7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Task 7 - Fragment"
+            android:enabled="false"
+            android:alpha="0.5"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Buton Task 8 (viitor) -->
+        <Button
+            android:id="@+id/btnTask8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Task 8 - XML/JSON + Baza Date"
+            android:enabled="false"
+            android:alpha="0.5"
+            android:layout_marginBottom="12dp"/>
+
     </LinearLayout>
 </ScrollView>

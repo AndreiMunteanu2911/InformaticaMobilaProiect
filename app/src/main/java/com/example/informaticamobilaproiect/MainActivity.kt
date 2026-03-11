@@ -1,7 +1,8 @@
 package com.example.informaticamobilaproiect
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.TextView
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -12,29 +13,54 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Referință către TextView-ul din XML
-        val tvAfisare = findViewById<TextView>(R.id.tvAfisareDate)
-
-        // 1. Crearea celor 5 obiecte (inițializare)
-        val p1 = Produs("Smartphone", 5, 2499.9, true, 'A')
-        val p2 = Produs("Căști BT", 12, 150.0, true, 'B')
-        val p3 = Produs("Husa Silicon", 0, 45.5, false, 'C')
-        val p4 = Produs("Încărcător", 20, 89.0, true, 'B')
-        val p5 = Produs("Baterie Externă", 3, 199.9, false, 'A')
-
-        val listaMea = listOf(p1, p2, p3, p4, p5)
-
-        // 2. Construirea textului pentru afișare
-        val textFinal = StringBuilder()
-
-        for (item in listaMea) {
-            textFinal.append("Nume: ${item.nume}\n")
-            textFinal.append("Stoc: ${item.cantitate} | Preț: ${item.pret} lei\n")
-            textFinal.append("Nou: ${if(item.esteNou) "DA" else "NU"} | Cat: ${item.categorie}\n")
-            textFinal.append("---------------------------------\n\n")
+        // Buton Task 1
+        val btnTask1 = findViewById<Button>(R.id.btnTask1)
+        btnTask1.setOnClickListener {
+            val intent = Intent(this, Task1Activity::class.java)
+            startActivity(intent)
         }
 
-        // 3. Afișarea efectivă în interfață
-        tvAfisare.text = textFinal.toString()
+        // Buton Task 2
+        val btnTask2 = findViewById<Button>(R.id.btnTask2)
+        btnTask2.setOnClickListener {
+            val intent = Intent(this, Task2Activity::class.java)
+            startActivity(intent)
+        }
+
+        // Buton Task 3 (viitor)
+        val btnTask3 = findViewById<Button>(R.id.btnTask3)
+        btnTask3.setOnClickListener {
+            // De implementat
+        }
+
+        // Buton Task 4 (viitor)
+        val btnTask4 = findViewById<Button>(R.id.btnTask4)
+        btnTask4.setOnClickListener {
+            // De implementat
+        }
+
+        // Buton Task 5 (viitor)
+        val btnTask5 = findViewById<Button>(R.id.btnTask5)
+        btnTask5.setOnClickListener {
+            // De implementat
+        }
+
+        // Buton Task 6 (viitor)
+        val btnTask6 = findViewById<Button>(R.id.btnTask6)
+        btnTask6.setOnClickListener {
+            // De implementat
+        }
+
+        // Buton Task 7 (viitor)
+        val btnTask7 = findViewById<Button>(R.id.btnTask7)
+        btnTask7.setOnClickListener {
+            // De implementat
+        }
+
+        // Buton Task 8 (viitor)
+        val btnTask8 = findViewById<Button>(R.id.btnTask8)
+        btnTask8.setOnClickListener {
+            // De implementat
+        }
     }
 }

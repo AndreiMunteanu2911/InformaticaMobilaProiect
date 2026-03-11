@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitluTask1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Task 1 - Lista Obiecte"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clasa cu 5 date membre + 5 obiecte initializate"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/btnInapoiTask1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inapoi la Meniu"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/tvAfisareDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aici vor apărea obiectele..."
+            android:textSize="14sp" />
+    </LinearLayout>
+</ScrollView>

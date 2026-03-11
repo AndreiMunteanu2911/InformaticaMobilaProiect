@@ -24,13 +24,18 @@ Predarea se face la datele anuntate. Dacă nu puteți veni la una din teme, o pu
 app/
 ├── src/main/
 │   ├── java/com/example/informaticamobilaproiect/
-│   │   ├── MainActivity.kt
+│   │   ├── MainActivity.kt (meniu principal)
+│   │   ├── Task1Activity.kt
+│   │   ├── Task2Activity.kt
 │   │   ├── Produs.kt
 │   │   ├── data/
 │   │   ├── fragments/
 │   │   └── utils/
 │   ├── res/
 │   │   ├── layout/
+│   │   │   ├── activity_main.xml (meniu)
+│   │   │   ├── activity_task1.xml
+│   │   │   ├── activity_task2.xml
 │   │   ├── values/
 │   │   ├── values-bg/
 │   │   ├── values-de/
@@ -42,4 +47,6 @@ app/
 
 ## Implementare Curenta
 
-- [x] Task 1: Clasa `Produs` cu 5 date membre (String, Int, Double, Boolean, Char) si 5 obiecte initializate si afisate in `MainActivity`
+- [x] **Meniu Principal** (`MainActivity`) - Navigare catre toate task-urile
+- [x] **Task 1**: Clasa `Produs` cu 5 date membre (String, Int, Double, Boolean, Char) si 5 obiecte initializate si afisate in `Task1Activity`
+- [x] **Task 2**: Lista cu 6 obiecte, citire 2 conditii din interfata (stoc minim + categorie) si afisarea produselor filtrate in `Task2Activity`
