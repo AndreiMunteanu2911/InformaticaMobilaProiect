@@ -29,6 +29,7 @@ app/
 │   │   ├── Task2Activity.kt
 │   │   ├── Task3Activity.kt
 │   │   ├── Task4Activity.kt
+│   │   ├── Task5Activity.kt
 │   │   ├── Produs.kt
 │   │   ├── data/
 │   │   ├── fragments/
@@ -40,6 +41,7 @@ app/
 │   │   │   ├── activity_task2.xml
 │   │   │   ├── activity_task3.xml
 │   │   │   ├── activity_task4.xml
+│   │   │   ├── activity_task5.xml
 │   │   ├── values/
 │   │   ├── values-bg/
 │   │   ├── values-de/
@@ -56,3 +58,4 @@ app/
 - [x] **Task 2**: Lista cu 6 obiecte, citire 2 conditii din interfata (stoc minim + categorie) si afisarea produselor filtrate in `Task2Activity`
 - [x] **Task 3**: Conectare la URL (JSON API), afisare informatii in 2 campuri (titlu + corp) si deschidere browser in `Task3Activity`
 - [x] **Task 4**: Internationalizare - 2 elemente text + 1 imagine (steag) in 4 limbi (RO, EN, DE, FR) cu schimbare dinamica a limbii in `Task4Activity`
+- [x] **Task 5**: Fisier intern SI extern - 2 componente (ID/text + numar), selector tip fisier, afisare cale, operatii de creare, scriere, citire, adaugare (cu verificare duplicat) si stergere (dupa ID) in `Task5Activity`

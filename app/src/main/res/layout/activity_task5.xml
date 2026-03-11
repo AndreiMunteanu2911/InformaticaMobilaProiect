@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitluTask5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Task 5 - Fisier Intern/Extern"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Creare, scriere, citire, adaugare si stergere din fisier"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/btnInapoiTask5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inapoi la Meniu"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Selector tip fisier -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tip fișier:"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <RadioGroup
+            android:id="@+id/rgTipFisier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/rbFisierIntern"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Fisier Intern"
+                android:checked="true"/>
+
+            <RadioButton
+                android:id="@+id/rbFisierExtern"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Fisier Extern"/>
+        </RadioGroup>
+
+        <!-- Cale fisier -->
+        <TextView
+            android:id="@+id/tvCaleFisier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cale: "
+            android:textSize="11sp"
+            android:textStyle="italic"
+            android:textColor="#666666"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Componenta 1: ID / Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID / Nume (Text):"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/etIdNume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Introduceți ID sau Nume"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Componenta 2: Varsta / Numar -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vârstă / Număr:"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/etVarsta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Introduceți vârsta sau un număr"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Buton Creare Fisier -->
+        <Button
+            android:id="@+id/btnCreareFisier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. Creare Fișier"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Buton Scriere in Fisier -->
+        <Button
+            android:id="@+id/btnScriereFisier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. Scriere în Fișier"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Buton Citire din Fisier -->
+        <Button
+            android:id="@+id/btnCitireFisier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. Citire din Fișier"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Buton Adaugare in Fisier -->
+        <Button
+            android:id="@+id/btnAdaugareFisier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4. Adăugare în Fișier"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Buton Stergere din Fisier -->
+        <Button
+            android:id="@+id/btnStergereFisier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5. Ștergere din Fișier (după ID)"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Separator -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#CCCCCC"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Afisare continut fisier -->
+        <TextView
+            android:id="@+id/tvRezultatLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Conținut Fișier:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvRezultat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fișierul nu a fost încă creat..."
+            android:textSize="14sp"
+            android:background="#F0F0F0"
+            android:padding="8dp"
+            android:minHeight="100dp"/>
+
+        <!-- Status operatie -->
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:layout_marginTop="8dp"
+            android:textColor="#666666"/>
+
+    </LinearLayout>
+</ScrollView>
