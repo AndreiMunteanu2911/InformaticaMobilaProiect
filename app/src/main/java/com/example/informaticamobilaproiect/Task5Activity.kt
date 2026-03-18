@@ -18,8 +18,8 @@ import java.io.InputStreamReader
 
 class Task5Activity : AppCompatActivity() {
 
-    private lateinit var etIdNume: EditText
-    private lateinit var etVarsta: EditText
+    private lateinit var etId: EditText
+    private lateinit var etNume: EditText
     private lateinit var rgTipFisier: RadioGroup
     private lateinit var rbFisierIntern: RadioButton
     private lateinit var rbFisierExtern: RadioButton
@@ -41,8 +41,8 @@ class Task5Activity : AppCompatActivity() {
         setContentView(R.layout.activity_task5)
 
         // Referinte catre componente
-        etIdNume = findViewById(R.id.etIdNume)
-        etVarsta = findViewById(R.id.etVarsta)
+        etId = findViewById(R.id.etId)
+        etNume = findViewById(R.id.etNume)
         rgTipFisier = findViewById(R.id.rgTipFisier)
         rbFisierIntern = findViewById(R.id.rbFisierIntern)
         rbFisierExtern = findViewById(R.id.rbFisierExtern)
@@ -137,18 +137,26 @@ class Task5Activity : AppCompatActivity() {
     }
 
     private fun scriereInFisier() {
-        val idNume = etIdNume.text.toString().trim()
-        val varsta = etVarsta.text.toString().trim()
+        val id = etId.text.toString().trim()
+        val nume = etNume.text.toString().trim()
 
-        if (idNume.isEmpty() || varsta.isEmpty()) {
+        if (id.isEmpty() || nume.isEmpty()) {
             tvStatus.text = "Completați ambele câmpuri!"
             Toast.makeText(this, "Completați toate câmpurile", Toast.LENGTH_SHORT).show()
             return
         }
 
+        // Verificare ID este numar intreg
+        val idInt = id.toIntOrNull()
+        if (idInt == null) {
+            tvStatus.text = "ID-ul trebuie să fie un număr întreg!"
+            Toast.makeText(this, "ID invalid", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         try {
             val fisier = obtineFisier()
-            val continut = "ID/Nume: $idNume\nVârstă: $varsta\n"
+            val continut = "ID: $idInt\nNume: $nume\n"
             fisier.writeText(continut)
 
             tvStatus.text = "Date scrise cu succes!"
@@ -182,12 +190,20 @@ class Task5Activity : AppCompatActivity() {
     }
 
     private fun adaugareInFisier() {
-        val idNume = etIdNume.text.toString().trim()
-        val varsta = etVarsta.text.toString().trim()
+        val id = etId.text.toString().trim()
+        val nume = etNume.text.toString().trim()
 
-        if (idNume.isEmpty() || varsta.isEmpty()) {
+        if (id.isEmpty() || nume.isEmpty()) {
             tvStatus.text = "Completați ambele câmpuri!"
             Toast.makeText(this, "Completați toate câmpurile", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Verificare ID este numar intreg
+        val idInt = id.toIntOrNull()
+        if (idInt == null) {
+            tvStatus.text = "ID-ul trebuie să fie un număr întreg!"
+            Toast.makeText(this, "ID invalid", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -202,15 +218,15 @@ class Task5Activity : AppCompatActivity() {
             val continutExistent = fisier.readText()
 
             // Verificare conditie: nu adaugam daca ID-ul exista deja
-            if (continutExistent.contains("ID/Nume: $idNume")) {
-                tvStatus.text = "ID-ul '$idNume' există deja!"
+            if (continutExistent.contains("ID: $idInt")) {
+                tvStatus.text = "ID-ul '$idInt' există deja!"
                 tvRezultat.text = "Nu se poate adăuga: ID duplicat."
                 Toast.makeText(this, "ID-ul există deja", Toast.LENGTH_SHORT).show()
                 return
             }
 
             // Adaugare noua intrare
-            val nouaIntrare = "\n---\nID/Nume: $idNume\nVârstă: $varsta\n"
+            val nouaIntrare = "\n---\nID: $idInt\nNume: $nume\n"
             val continutActualizat = continutExistent + nouaIntrare
 
             fisier.writeText(continutActualizat)
@@ -225,11 +241,19 @@ class Task5Activity : AppCompatActivity() {
     }
 
     private fun stergereDinFisier() {
-        val idNume = etIdNume.text.toString().trim()
+        val id = etId.text.toString().trim()
 
-        if (idNume.isEmpty()) {
+        if (id.isEmpty()) {
             tvStatus.text = "Introduceți ID-ul de șters!"
             Toast.makeText(this, "Introduceți ID-ul", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Verificare ID este numar intreg
+        val idInt = id.toIntOrNull()
+        if (idInt == null) {
+            tvStatus.text = "ID-ul trebuie să fie un număr întreg!"
+            Toast.makeText(this, "ID invalid", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -244,8 +268,8 @@ class Task5Activity : AppCompatActivity() {
             val continutExistent = fisier.readText()
 
             // Verificare conditie: ID-ul exista?
-            if (!continutExistent.contains("ID/Nume: $idNume")) {
-                tvStatus.text = "ID-ul '$idNume' nu a fost găsit!"
+            if (!continutExistent.contains("ID: $idInt")) {
+                tvStatus.text = "ID-ul '$idInt' nu a fost găsit!"
                 tvRezultat.text = continutExistent
                 Toast.makeText(this, "ID-ul nu există în fișier", Toast.LENGTH_SHORT).show()
                 return
@@ -257,11 +281,11 @@ class Task5Activity : AppCompatActivity() {
             var skipUrmatoarea = false
 
             for (linie in linii) {
-                if (linie.contains("ID/Nume: $idNume")) {
+                if (linie.contains("ID: $idInt")) {
                     skipUrmatoarea = true
                     continue
                 }
-                if (skipUrmatoarea && (linie.contains("Vârstă:") || linie == "---")) {
+                if (skipUrmatoarea && (linie.contains("Nume:") || linie == "---")) {
                     skipUrmatoarea = false
                     continue
                 }
