@@ -14,13 +14,13 @@ import androidx.appcompat.app.AppCompatActivity
 class Task2Activity : AppCompatActivity() {
 
     private lateinit var tvAfisare: TextView
-    private lateinit var etStocMinim: EditText
-    private lateinit var spinnerCategorie: Spinner
+    private lateinit var etStocMaxim: EditText
+    private lateinit var spinnerCategorieExclusa: Spinner
     private lateinit var btnFiltreaza: Button
     private lateinit var btnInapoi: Button
 
     private lateinit var listaProduse: List<Produs>
-    private var categorieAleasa: Char = '*'
+    private var categorieDeExclus: Char = '*'
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,8 +28,8 @@ class Task2Activity : AppCompatActivity() {
 
         // Referințe către componentele din XML
         tvAfisare = findViewById(R.id.tvAfisareDate)
-        etStocMinim = findViewById(R.id.etStocMinim)
-        spinnerCategorie = findViewById(R.id.spinnerCategorie)
+        etStocMaxim = findViewById(R.id.etStocMaxim)
+        spinnerCategorieExclusa = findViewById(R.id.spinnerCategorieExclusa)
         btnFiltreaza = findViewById(R.id.btnFiltreaza)
         btnInapoi = findViewById(R.id.btnInapoiTask2)
 
@@ -51,16 +51,16 @@ class Task2Activity : AppCompatActivity() {
         // Afișare inițială a tuturor produselor
         afiseazaProduse(listaProduse, "Toate produseele:")
 
-        // Configurare Spinner pentru categorii
-        val categorii = arrayOf("Toate", "Categoria A", "Categoria B", "Categoria C")
+        // Configurare Spinner pentru categorii de exclus
+        val categorii = arrayOf("Nicio categorie (Toate incluse)", "Exclude Categoria A", "Exclude Categoria B", "Exclude Categoria C")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categorii)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerCategorie.adapter = adapter
+        spinnerCategorieExclusa.adapter = adapter
 
         // Listener pentru Spinner
-        spinnerCategorie.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        spinnerCategorieExclusa.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                categorieAleasa = when (position) {
+                categorieDeExclus = when (position) {
                     1 -> 'A'
                     2 -> 'B'
                     3 -> 'C'
@@ -69,7 +69,7 @@ class Task2Activity : AppCompatActivity() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                categorieAleasa = '*'
+                categorieDeExclus = '*'
             }
         }
 
@@ -80,19 +80,19 @@ class Task2Activity : AppCompatActivity() {
     }
 
     private fun filtreazaProduse() {
-        // Citire condiție 1: stoc minim
-        val stocMinim = etStocMinim.text.toString().toIntOrNull() ?: 0
+        // Citire condiție 1: stoc maxim
+        val stocMaxim = etStocMaxim.text.toString().toIntOrNull() ?: Int.MAX_VALUE
 
         // Filtrare după cele 2 condiții
         val produseFiltrate = listaProduse.filter { produs ->
-            val indeplinesteConditieStoc = produs.cantitate >= stocMinim
-            val indeplinesteConditieCategorie = categorieAleasa == '*' || produs.categorie == categorieAleasa
+            val indeplinesteConditieStoc = produs.cantitate <= stocMaxim
+            val indeplinesteConditieCategorie = categorieDeExclus == '*' || produs.categorie != categorieDeExclus
             indeplinesteConditieStoc && indeplinesteConditieCategorie
         }
 
-        val titlu = "Produse cu stoc >= $stocMinim" + 
-            if (categorieAleasa != '*') " și categoria '${categorieAleasa}'" else ""
-        
+        val titlu = "Produse cu stoc <= $stocMaxim" +
+            if (categorieDeExclus != '*') " (fără categoria '${categorieDeExclus}')" else ""
+
         afiseazaProduse(produseFiltrate, titlu)
     }
 

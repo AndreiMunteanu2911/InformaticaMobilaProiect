@@ -112,6 +112,26 @@
             android:text="-"
             android:textSize="14sp"
             android:background="#F0F0F0"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Afisare presiune (camp 3) -->
+        <TextView
+            android:id="@+id/tvPresiuneLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Presiune atmosferică:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tvPresiuneValoare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="14sp"
+            android:background="#F0F0F0"
             android:padding="8dp"/>
 
         <!-- Progress bar pentru loading -->

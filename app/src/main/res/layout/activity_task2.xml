@@ -44,34 +44,34 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"/>
 
-        <!-- Conditia 1: Stoc minim -->
+        <!-- Conditia 1: Stoc maxim -->
         <TextView
             android:id="@+id/tvConditie1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Condiția 1 - Stoc minim:"
+            android:text="Condiția 1 - Stoc maxim:"
             android:textSize="14sp"
             android:layout_marginBottom="4dp"/>
 
         <EditText
-            android:id="@+id/etStocMinim"
+            android:id="@+id/etStocMaxim"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="Introduceți stocul minim (ex: 5)"
+            android:hint="Introduceți stocul maxim (ex: 10)"
             android:layout_marginBottom="12dp"/>
 
-        <!-- Conditia 2: Categorie -->
+        <!-- Conditia 2: Categorie de exclus -->
         <TextView
             android:id="@+id/tvConditie2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Condiția 2 - Categorie:"
+            android:text="Condiția 2 - Categorie de exclus:"
             android:textSize="14sp"
             android:layout_marginBottom="4dp"/>
 
         <Spinner
-            android:id="@+id/spinnerCategorie"
+            android:id="@+id/spinnerCategorieExclusa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"/>

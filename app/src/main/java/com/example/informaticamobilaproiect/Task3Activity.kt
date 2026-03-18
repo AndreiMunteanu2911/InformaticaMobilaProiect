@@ -25,10 +25,12 @@ class Task3Activity : AppCompatActivity() {
     private lateinit var btnInapoi: Button
     private lateinit var tvTitluValoare: TextView
     private lateinit var tvCorpValoare: TextView
+    private lateinit var tvPresiuneValoare: TextView
     private lateinit var progressBar: ProgressBar
 
-    // URL default: API vreme pentru Galati
-    private val defaultUrl = "https://api.open-meteo.com/v1/forecast?latitude=45.43&longitude=28.01&current_weather=true"
+    // URL default: API vreme pentru Galati cu presiune
+    // Open-Meteo: folosim 'current' in loc de 'current_weather' pentru a include presiunea
+    private val defaultUrl = "https://api.open-meteo.com/v1/forecast?latitude=45.43&longitude=28.01&current=temperature_2m,relative_humidity_2m,windspeed_10m,winddirection_10m,pressure_msl,surface_pressure,weathercode"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +43,7 @@ class Task3Activity : AppCompatActivity() {
         btnInapoi = findViewById(R.id.btnInapoiTask3)
         tvTitluValoare = findViewById(R.id.tvTitluValoare)
         tvCorpValoare = findViewById(R.id.tvCorpValoare)
+        tvPresiuneValoare = findViewById(R.id.tvPresiuneValoare)
         progressBar = findViewById(R.id.progressBar)
 
         // Setare URL default
@@ -74,6 +77,7 @@ class Task3Activity : AppCompatActivity() {
         progressBar.visibility = View.VISIBLE
         tvTitluValoare.text = "Se incarca..."
         tvCorpValoare.text = ""
+        tvPresiuneValoare.text = ""
 
         // Utilizare Coroutine pentru operatiuni de retea (thread separat)
         CoroutineScope(Dispatchers.IO).launch {
@@ -84,12 +88,13 @@ class Task3Activity : AppCompatActivity() {
 
                 // Parse JSON si extragere informatii vreme
                 val json = JSONObject(raspuns)
-                val (titlu, corp) = extrageInformatiiVreme(json)
+                val (titlu, corp, presiune) = extrageInformatiiVreme(json)
 
                 // Actualizare UI pe thread-ul principal
                 withContext(Dispatchers.Main) {
                     tvTitluValoare.text = titlu
                     tvCorpValoare.text = corp
+                    tvPresiuneValoare.text = presiune
                     progressBar.visibility = View.GONE
                 }
             } catch (e: Exception) {
@@ -97,6 +102,7 @@ class Task3Activity : AppCompatActivity() {
                 withContext(Dispatchers.Main) {
                     tvTitluValoare.text = "Eroare"
                     tvCorpValoare.text = "Nu s-au putut incarca datele: ${e.message}"
+                    tvPresiuneValoare.text = "-"
                     progressBar.visibility = View.GONE
                     Toast.makeText(this@Task3Activity, "Eroare la incarcare", Toast.LENGTH_SHORT).show()
                 }
@@ -104,29 +110,36 @@ class Task3Activity : AppCompatActivity() {
         }
     }
 
-    private fun extrageInformatiiVreme(json: JSONObject): Pair<String, String> {
+    private fun extrageInformatiiVreme(json: JSONObject): Triple<String, String, String> {
         return try {
-            // Incercare format API Open-Meteo (vreme)
-            val currentWeather = json.getJSONObject("current_weather")
-            val temperatura = currentWeather.getDouble("temperature")
-            val vantViteza = currentWeather.getDouble("windspeed")
-            val vantDirectie = currentWeather.getDouble("winddirection")
-            val vremeCod = currentWeather.getInt("weathercode")
+            // Incercare format API Open-Meteo (vreme) - folosind 'current'
+            val current = json.getJSONObject("current")
+            val temperatura = current.getDouble("temperature_2m")
+            val umiditate = current.getDouble("relative_humidity_2m")
+            val vantViteza = current.getDouble("windspeed_10m")
+            val vantDirectie = current.getDouble("winddirection_10m")
+            val vremeCod = current.getInt("weathercode")
+
+            // Extrage presiunea din current
+            val pressureMsl = current.getDouble("pressure_msl")
+            val surfacePressure = current.getDouble("surface_pressure")
+            val presiune = "MSL: ${pressureMsl} hPa | Suprafață: ${surfacePressure} hPa"
 
             val titlu = "Vremea - Galati"
             val corp = "Temperatura: ${temperatura}°C\n" +
+                    "Umiditate: ${umiditate}%\n" +
                     "Vânt: ${vantViteza} km/h (direcția: ${vantDirectie}°)\n" +
                     "Cod vreme: $vremeCod"
 
-            Pair(titlu, corp)
+            Triple(titlu, corp, presiune)
         } catch (e: Exception) {
             // Fallback pentru alte API-uri JSON (ex: jsonplaceholder)
             try {
                 val titlu = json.optString("title", "Titlu")
                 val corp = json.optString("body", json.toString())
-                Pair(titlu, corp)
+                Triple(titlu, corp, "N/A")
             } catch (e2: Exception) {
-                Pair("JSON Response", json.toString())
+                Triple("JSON Response", json.toString(), "N/A")
             }
         }
     }
