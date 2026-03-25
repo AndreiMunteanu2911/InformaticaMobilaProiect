@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Titlu -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Task 9 - Baza de Date (SQLite)"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Selector modul (Produse/Comenzi) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modul de lucru:"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <RadioGroup
+            android:id="@+id/rgModul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/rbModuleProduse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Produse"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/rbModuleComenzi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comenzi" />
+        </RadioGroup>
+
+        <!-- Separator -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginBottom="16dp" />
+
+        <!-- ==================== MODULE PRODUSE ==================== -->
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gestiune Produse:"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Campuri pentru produs -->
+        <EditText
+            android:id="@+id/etProdusNume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nume produs"
+            android:inputType="text"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etProdusPret"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Preț produs"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etProdusCategorie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Categorie produs"
+            android:inputType="text"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Camp ID (pentru update/delete) -->
+        <EditText
+            android:id="@+id/etProdusId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID produs (se completează automat la selectare)"
+            android:inputType="number"
+            android:enabled="false"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Spinner pentru selectare produs -->
+        <Spinner
+            android:id="@+id/spinnerProduse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Buton adaugare produs -->
+        <Button
+            android:id="@+id/btnProdusAdauga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Adaugă Produs"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Buton actualizare produs -->
+        <Button
+            android:id="@+id/btnProdusActualizeaza"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Actualizează Produs"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Buton stergere produs -->
+        <Button
+            android:id="@+id/btnProdusSterge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Șterge Produs"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Separator pentru comenzi -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginBottom="16dp" />
+
+        <!-- ==================== MODULE COMENZI ==================== -->
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gestiune Comenzi:"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Campuri pentru comanda -->
+        <EditText
+            android:id="@+id/etComandaProdusId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID Produs (FK)"
+            android:inputType="number"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etComandaCantitate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cantitate"
+            android:inputType="number"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etComandaStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Status (ex: Pending, Shipped)"
+            android:inputType="text"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Camp ID (pentru update/delete) -->
+        <EditText
+            android:id="@+id/etComandaId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID comandă (se completează automat la selectare)"
+            android:inputType="number"
+            android:enabled="false"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Spinner pentru selectare comanda -->
+        <Spinner
+            android:id="@+id/spinnerComenzi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Buton adaugare comanda -->
+        <Button
+            android:id="@+id/btnComandaAdauga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Adaugă Comandă"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Buton actualizare comanda -->
+        <Button
+            android:id="@+id/btnComandaActualizeaza"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Actualizează Comandă"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Buton stergere comanda -->
+        <Button
+            android:id="@+id/btnComandaSterge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Șterge Comandă"
+            android:layout_marginBottom="16dp" />
+
+        <!-- ==================== REZULTATE ==================== -->
+        
+        <!-- Status -->
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status: "
+            android:textColor="@android:color/holo_blue_dark"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Rezultat -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rezultat:"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/tvRezultat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/edit_text"
+            android:padding="8dp"
+            android:minHeight="150dp"
+            android:fontFamily="monospace"
+            android:textSize="11sp"
+            android:scrollbars="vertical" />
+
+        <!-- Buton refresh -->
+        <Button
+            android:id="@+id/btnRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reactualizare"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Buton inapoi -->
+        <Button
+            android:id="@+id/btnInapoi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Înapoi"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</ScrollView>

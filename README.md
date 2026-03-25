@@ -36,10 +36,16 @@ app/
 │   │   ├── Task7SecondActivity.kt
 │   │   ├── Task7Fragment.kt
 │   │   ├── Task8Activity.kt
+│   │   ├── Task9Activity.kt
 │   │   ├── Produs.kt
 │   │   ├── data/
+│   │   │   ├── AppDatabase.kt
+│   │   │   ├── Dao.kt
+│   │   │   ├── Repository.kt
+│   │   │   └── Task9Models.kt
 │   │   ├── fragments/
 │   │   └── utils/
+│   │       └── SupabaseHelper.kt
 │   ├── res/
 │   │   ├── layout/
 │   │   │   ├── activity_main.xml (meniu)
@@ -53,6 +59,7 @@ app/
 │   │   │   ├── activity_task7.xml
 │   │   │   ├── activity_task7_second.xml
 │   │   │   ├── activity_task8.xml
+│   │   │   ├── activity_task9.xml
 │   │   │   ├── fragment_task7.xml
 │   │   ├── values/
 │   │   ├── values-bg/
@@ -62,6 +69,15 @@ app/
 │   │   └── ...
 │   └── AndroidManifest.xml
 ```
+
+## Tehnologii Utilizate
+
+- **Kotlin** - Limbaj de programare
+- **Room Database** - Baza de date locală SQLite
+- **KSP** - Kotlin Symbol Processing pentru generarea codului Room
+- **Coroutines** - Programare asincronă
+- **ViewBinding** - Acces la views
+- **Material Design 3** - Componente UI
 
 ## Implementare Curenta
 
@@ -74,3 +90,82 @@ app/
 - [x] **Task 6**: Doua ferestre - transmitere a 2 valori (nume + varsta) prin Intent de la `Task6Activity` la `Task6SecondActivity` si afisarea lor in fereastra noua
 - [x] **Task 7**: Fragment comun (`Task7Fragment`) folosit in doua ferestre diferite (`Task7Activity` + `Task7SecondActivity`) pentru transmiterea de informatii intre ele prin intermediul unei interfețe
 - [x] **Task 8**: Fișier intern/extern JSON/XML cu operatii CRUD (scriere, citire, adaugare, stergere) pentru o listă de elemente, fiecare conținând: o listă (subelemente), o altă structură (detalii) și un element boolean (activ) în `Task8Activity`
+- [x] **Task 9**: Baza de date Room (SQLite) cu 2 tabele relationate (`produse` si `comenzi`) cu operatii CRUD complete (Create, Read, Update, Delete) în `Task9Activity`
+
+## Build si Rulare
+
+### Cerinte
+- Java JDK 17+ (recomandat JDK 21 sau 26)
+- Android SDK 34
+- Gradle 8.10
+- Android Gradle Plugin 8.5.2
+- Kotlin 1.9.24
+- KSP 1.9.24-1.0.20
+
+### Comanda build
+```bash
+./gradlew assembleDebug
+```
+
+APK-ul va fi generat la: `app/build/outputs/apk/debug/app-debug.apk`
+
+## Task 9 - Baza de Date Locala (Room)
+
+Task 9 foloseste **Room Database** (SQLite) pentru stocarea locala a datelor. **Nu necesita nicio configurare** - baza de date se creeaza automat la prima rulare.
+
+### Quick Start
+1. Build > Run app
+2. Apasa pe **Task 9 - Baza de Date**
+3. Baza de date vine pre-popolata cu 7 produse si 7 comenzi (pentru testare)
+4. Adauga/modifica/sterge produse si comenzi folosind butoanele
+
+### Structura bazei de date:
+
+**Tabela `produse`** (3 campuri):
+- `id` (primary key, auto-increment)
+- `nume` (String)
+- `pret` (Double)
+- `categorie` (String)
+
+**Tabela `comenzi`** (legata de produse, 4 campuri):
+- `id` (primary key, auto-increment)
+- `produsId` (foreign key -> produse.id)
+- `cantitate` (Int)
+- `dataComanda` (String)
+- `status` (String)
+
+### Operatii CRUD:
+
+**Pentru PRODUSE:**
+- **Create**: Completeaza nume, pret, categorie si apasa "Adaugă Produs"
+- **Read**: Selecteaza un produs din dropdown pentru a-l vedea/edita
+- **Update**: Selecteaza produs, modifica campurile, apasa "Actualizează Produs"
+- **Delete**: Selecteaza produs, apasa "Șterge Produs", apoi "Refresh DB" pentru a vedea rezultatele
+
+**Pentru COMENZI:**
+- **Create**: Completeaza produs_id, cantitate, status si apasa "Adaugă Comandă"
+- **Read**: Selecteaza o comanda din dropdown pentru a o vedea/edita
+- **Update**: Selecteaza comanda, modifica campurile, apasa "Actualizează Comandă"
+- **Delete**: Selecteaza comanda, apasa "Șterge Comandă", apoi "Refresh DB"
+
+### Caracteristici
+- Nu necesita configurare - se creeaza automat
+- Datele persista intre rulari
+- Buton "Refresh DB" pentru a reincarca datele dupa operatii
+- Foloseste Repository Pattern pentru arhitectura curata
+
+### Unde se stocheaza datele?
+```
+/data/data/com.example.informaticamobilaproiect/databases/task9_database
+```
+
+Pentru a inspecta baza de date:
+1. Device File Explorer in Android Studio (View > Tool Windows)
+2. Navigheaza la calea de mai sus
+3. Copy database file pentru inspectie
+
+### Resetare Baza de Date
+Pentru a sterge toate datele:
+1. Settings > Apps > InformaticaMobilaProiect
+2. Storage > Clear Data
+3. La urmatoarea rulare, baza de date se va recrea (cu datele initiale)

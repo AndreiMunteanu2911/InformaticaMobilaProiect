@@ -80,5 +80,14 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, Task8Activity::class.java)
             startActivity(intent)
         }
+        
+        // Buton Task 9
+        val btnTask9 = findViewById<Button>(R.id.btnTask9)
+        btnTask9.isEnabled = true
+        btnTask9.alpha = 1.0f
+        btnTask9.setOnClickListener {
+            val intent = Intent(this, Task9Activity::class.java)
+            startActivity(intent)
+        }
     }
 }
