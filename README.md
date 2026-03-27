@@ -2,10 +2,6 @@
 
 Proiect Android pentru disciplina Informatica Mobila.
 
-## Predare proiecte
-
-Predarea se face la datele anuntate. Dacă nu puteți veni la una din teme, o puteți trimite pe Teams-Chat și o susțineți următoarea dată. Temele din urmă nu se mai verifică.
-
 ## Task-uri
 
 1. **Clasă obiecte cu 5 date membre de tipuri diferite** - inițializare cel putin 5 obiecte, afișarea tuturor obiectelor initializate in interfata aplicatiei - 0.5 pct la nota finala
